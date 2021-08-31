@@ -1,11 +1,13 @@
 package com.green.samplecompany.servicetests;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
@@ -13,12 +15,12 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.test.web.servlet.MockMvc;
 
 import com.green.samplecompany.models.Computer;
 import com.green.samplecompany.models.Employee;
 import com.green.samplecompany.repositories.ComputerRepo;
 import com.green.samplecompany.services.ComputerService;
-import static org.mockito.Mockito.times;
 
 /**
  * @author zlatkov
@@ -34,16 +36,30 @@ public class ComputerServiceTests{
     @InjectMocks
     private ComputerService pcService;
 
+    private MockMvc mockMvc;
+
     //№1
     @Test
     @DisplayName("Create Computer Test")
-    public void createPC(){
+    public void createPC() {
         List<Computer> pcDatabase = loadPCTestData();
         when(pcRepo.findAll()).thenReturn(pcDatabase);
+
         //test
         List<Computer> listPCs = pcService.findAllPCs();
         assertEquals(2, listPCs.size());
         verify(pcRepo, times(1)).findAll();
+    }
+
+    //№2
+    @Test
+    @DisplayName("Delete Computer Test")
+    public void deletePC() {
+    Computer pc = loadPCTestData().get(0);
+
+    //when(pcRepo.findById(pc.getId())).thenReturn( Optional.of(pc));
+    pcService.delete( pc.getId());
+    verify(pcRepo).deleteById(pc.getId());
     }
 
 
