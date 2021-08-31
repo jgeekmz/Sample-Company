@@ -27,7 +27,11 @@ requests on port 8080.
 Requirements:
 
 The system administrator wants to be able to add a new computer to an employee
+
 The system administrator wants to be informed when an employee is assigned 3 or more computers.
+
 The system administrator wants to be able to get all assigned computers for an employee
+
 The system administrator wants to be able to remove a computer from an employee
+
 The system administrator wants to be able to assign a computer to another employee
