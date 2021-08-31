@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link rel="shortcut icon" href="img/favicon.png">
+
+    <title>Computer Page</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="css/elegant-icons-style.css" rel="stylesheet"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- full calendar css-->
+    <link href="assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet"/>
+    <link href="assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet"/>
+    <!-- easy pie chart-->
+    <link href="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css">
+    <link href="css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="css/fullcalendar.css">
+    <link href="css/widgets.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet"/>
+    <link href="css/xcharts.min.css" rel=" stylesheet">
+    <link href="css/jquery-ui-1.10.4.min.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- container section start -->
+<section id="container" class="">
+
+
+    <header class="header dark-bg">
+        <div class="toggle-nav">
+            <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i
+                    class="icon_menu"></i></div>
+        </div>
+
+        <!--logo start-->
+        <a th:href="@{/}" class="logo">JGEEK <span class="lite">MZ</span></a>
+        <!--logo end-->
+
+        <div class="nav search-row" id="top_menu">
+            <!--  search form start -->
+            <ul class="nav top-menu">
+                <li>
+                    <form class="navbar-form">
+                        <input class="form-control" placeholder="Search" type="text">
+                    </form>
+                </li>
+            </ul>
+            <!--  search form end -->
+        </div>
+
+        <div class="top-nav notification-row">
+            <!-- notificatoin dropdown start-->
+            <ul class="nav pull-right top-menu">
+
+                <!-- user login dropdown start-->
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="profile-ava"><img alt="" src="img/profilePic.jpg" width="50" height="50"></span><span class="username">Martin Zlatkov</span><b class="caret"></b></a>
+                    <ul class="dropdown-menu extended logout">
+                        <div class="log-arrow-up"></div>
+                        <li class="eborder-top"><a href="#"><i class="icon_profile"></i> My Profile</a></li>
+                        <li><a th:href="@{/index}"><i class="icon_mail_alt"></i> My Inbox</a></li>
+                        <li><a th:href="@{/index}"><i class="icon_clock_alt"></i> Timeline</a></li>
+                        <li><a th:href="@{/index}"><i class="icon_chat_alt"></i> Chats</a></li>
+                        <li><a th:href="@{/index}"><i class="icon_key_alt"></i> Documentation</a></li>
+                        <li><a th:href="@{/index}"><i class="icon_key_alt"></i> Log Out</a></li>
+                    </ul>
+                </li>
+                <!-- user login dropdown end -->
+            </ul>
+            <!-- notificatoin dropdown end-->
+        </div>
+    </header>
+    <!--header end-->
+
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a class="" th:href="@{/}"><i class="icon_house_alt"></i><span>Admin Dashboard</span></a>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="fa fa-car"></i>
+                        <span>Data</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/employees}">Employee</a></li>
+                        <li><a class="" th:href="@{/computers}">Computer</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <!--sidebar end-->
+
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+
+            <!--overview start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-laptop"></i>Admin Dashboard</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a th:href="@{/}">Dashboard</a></li>
+                        <li><i class="fa fa-laptop"></i><a th:href="@{/}">Data</a></li>
+                        <li><i class="fa fa-laptop"></i>Computer</li>
+                    </ol>
+                </div>
+            </div>
+
+            </div>
+            <!--/.row-->
+
+            <!-- page start     <div class="row"> -->
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">Computer Table</header>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add New Computer</button>
+                        <table class="table table-striped table-advance table-hover">
+                            <tbody>
+                            <tr>
+                                <th><i class=""></i> Computer Name</th>
+                                <th><i class=""></i> Computer MAC Address</th>
+                                <th><i class=""></i> Computer IP Address</th>
+                                <th><i class=""></i> Description</th>
+                                <th><i class=""></i> Abbreviation</th>
+                                <th><i class="icon_cogs"></i> Action</th>
+                            </tr>
+                            <tr th:each="computer:${computers}">
+                                <td th:text="${computer.computerName}">Computer Name</td>
+                                <td th:text="${computer.macAddress}">Computer MAC Address</td>
+                                <td th:text="${computer.ipAddress}">Computer IP Address</td>
+                                <td th:text="${computer.description}">Description</td>
+                                <td th:text="${computer.empAbbr}">Employee Abbreaviation</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-primary" id="editButton" th:href="@{computers/findById/(id=${computer.id})}"><i class="icon_pencil-edit"></i></a>
+                                        <a class="btn btn-success" id="detailsButton" th:href="@{/computers/findById/(id=${computer.id})}"><i class="icon_document_alt"></i></a>
+                                        <a class="btn btn-danger" id="deleteButton" th:href="@{/computers/delete/(id=${computer.id})}"><i class="icon_close_alt2"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            <!-- page end  </div>-->
+
+        </section>
+        <div class="text-right">
+            <div class="credits">Designed by <a href="https://bootstrapmade.com/">Martin Zlatkov</a></div>
+        </div>
+    </section>
+    <!--main content end-->
+</section>
+<!-- container section start -->
+
+
+<!-- Modal Section starts here -->
+
+<!-- ADD Modal Section starts here -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form th:action="@{/computers/addNewComputer}" method="post">
+        <div class="modal-dialog modal-lg" role="document" style="width:70%">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel2">New Computer Record</h5></div>
+                <div class="modal-body">
+                    <table width="100%">
+                        <tr>
+                            <td width="50%">
+                                <div class="form-group row">
+                                    <label for="txtIdAdd" class="col-sm-4 col-form-label">Id: </label>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtIdAdd" name="id" placeholder="Id" disabled></div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtNameAdd" class="col-sm-4 col-form-label">Computer Name: </label>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtNameAdd" name="computerName" placeholder="Computer Name"></div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtDetailsAdd" class="col-sm-4 col-form-label">	Computer MAC Address: </label>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtDetailsAdd" name="macAddress" placeholder="MAC Address"></div>
+                                </div>
+                            </td>
+                            <td width="50%" style="padding-left:10px">
+                                <div class="form-group row">
+                                    <label for="txtWebsiteAdd" class="col-sm-4 col-form-label">Computer IP Address: </label>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtWebsiteAdd" name="ipAddress" placeholder="IP Address"></div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtEmpAbbrEdit" class="col-sm-4 col-form-label">Employee Abbreviation:</label>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtEmpAbbrEdit" name="empAbbr" placeholder="Description"></div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="computerAdd" class="col-sm-4 col-form-label">PC to Employee:</label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="computerAdd" name="empId" required>
+                                            <option value="">-SELECT-</option>
+                                            <option th:each="employee : ${employees}"
+                                                    th:value="${employee.id}"
+                                                    th:text="${employee.firstname} + ' ' + ${employee.lastname}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="txtAdd" class="col-sm-4 col-form-label">Description: </label>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtAdd" name="description" placeholder="Description"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- ADD Modal Section ends here -->
+
+<!-- EDIT Modal Section starts here -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form th:action="@{/computers/update}" method="put">
+        <div class="modal-dialog modal-lg" role="document" style="width:70%">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title" id="exampleModalLabel">Edit Computer Record</h5></div>
+                <div class="modal-body">
+                    <form>
+                        <table width="100%">
+                            <tr>
+                                <td width="50%">
+                                    <div class="form-group row">
+                                        <label for="txtIdEdit" class="col-sm-4 col-form-label">Id: </label>
+                                        <div class="col-sm-6"><input type="text" class="form-control" id="txtIdEdit" name="id" placeholder="Id" readonly></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtcomputerNameEdit" class="col-sm-4 col-form-label">Computer Name:</label>
+                                        <div class="col-sm-6"><input type="text" class="form-control" id="txtcomputerNameEdit" name="computerName" placeholder="Computer Name"></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtAddressEdit" class="col-sm-4 col-form-label">Computer MAC Address:</label>
+                                        <div class="col-sm-6"><input type="text" class="form-control" id="txtAddressEdit" name="macAddress" placeholder="MAC Address"></div>
+                                    </div>
+                                </td>
+                                <td width="50%" style="padding-left:10px">
+                                    <div class="form-group row">
+                                        <label for="txtIPAdressEdit" class="col-sm-4 col-form-label">Computer IP Address:</label>
+                                        <div class="col-sm-6"><input type="text" class="form-control" id="txtIPAdressEdit" name="ipAddress" placeholder="IP Address"></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtEmpAbbrEdit2" class="col-sm-4 col-form-label">Employee Abbreviation:</label>
+                                        <div class="col-sm-6"><input type="text" class="form-control" id="txtEmpAbbrEdit2" name="empAbbr" placeholder="Employee Abbreviation"></div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtcomputerEdit" class="col-sm-4 col-form-label">PC to Employee:</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="txtcomputerEdit" name="empId" required>
+                                                <option value="">-SELECT-</option>
+                                                <option th:each="employee : ${employees}"
+                                                        th:value="${employee.id}"
+                                                        th:text="${employee.firstname} + ' ' + ${employee.lastname}">
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="txtDescEdit" class="col-sm-4 col-form-label">Description:</label>
+                                        <div class="col-sm-6"><input type="text" class="form-control" id="txtDescEdit" name="description" placeholder="Description"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- EDIT Modal Section ends here -->
+
+<!-- DELETE Modal starts here -->
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title">Confirm delete</h5></div>
+            <div class="modal-body"><p>Are you sure you want to delete this record?</p></div>
+            <div class="modal-footer">
+                <a href="" class="btn btn-primary" id="delRef">Yes, Delete</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DELETE Modal ends here -->
+
+<!-- DETAILS Modal starts here-->
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <form>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title" id="editModalLabel2">Computer Details View</h5></div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="idDetails" name="id" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Commputer Name:</label>
+                        <input type="text" class="form-control" id="compName" name="computerName" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">MAC Address:</label>
+                        <input type="text" class="form-control" id="mac" name="macAddress" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">IP Address:</label>
+                        <input type="text" class="form-control" id="ip" name="ipAddress" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Description:</label>
+                        <input type="text" class="form-control" id="desc" name="description" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Employee Abbreviation:</label>
+                        <input type="text" class="form-control" id="empA" name="empAbbr" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Emp Abbr:</label>
+                        <input type="text" class="form-control" id="empAbbr" name="empAbbreviation" readonly hidden>
+                    </div>
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- DETAILS Modal ends here-->
+
+<!-- Modal Section ends here -->
+
+<!-- JS Section-->
+<!-- javascripts -->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui-1.10.4.min.js"></script>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<!-- bootstrap -->
+<script src="js/bootstrap.min.js"></script>
+<!-- nice scroll -->
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+<!-- charts scripts -->
+<script src="assets/jquery-knob/js/jquery.knob.js"></script>
+<script src="js/jquery.sparkline.js" type="text/javascript"></script>
+<script src="assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+<script src="js/owl.carousel.js"></script>
+<!-- jQuery full calendar -->
+<
+<script src="js/fullcalendar.min.js"></script>
+<!-- Full Google Calendar - Calendar -->
+<script src="assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
+<!--script for this page only-->
+<script src="js/calendar-custom.js"></script>
+<script src="js/jquery.rateit.min.js"></script>
+<!-- custom select -->
+<script src="js/jquery.customSelect.min.js"></script>
+<script src="assets/chart-master/Chart.js"></script>
+
+<!--custome script for all page-->
+<script src="js/scripts.js"></script>
+<!-- custom script for this page-->
+<script src="js/sparkline-chart.js"></script>
+<script src="js/easy-pie-chart.js"></script>
+<script src="js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="js/xcharts.min.js"></script>
+<script src="js/jquery.autosize.min.js"></script>
+<script src="js/jquery.placeholder.min.js"></script>
+<script src="js/gdp-data.js"></script>
+<script src="js/morris.min.js"></script>
+<script src="js/sparklines.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/jquery.slimscroll.min.js"></script>
+
+<script type="text/javascript" src="static/js/computer.js" th:src="@{/js/computer.js}"></script>
+
+<script>
+    //knob
+    $(function () {
+        $(".knob").knob({
+            'draw': function () {
+                $(this.i).val(this.cv + '%')
+            }
+        })
+    });
+
+    //carousel
+    $(document).ready(function () {
+        $("#owl-slider").owlCarousel({
+            navigation: true,
+            slideSpeed: 300,
+            paginationSpeed: 400,
+            singleItem: true
+
+        });
+    });
+
+    //custom select box
+
+    $(function () {
+        $('select.styled').customSelect();
+    });
+
+    /* ---------- Map ---------- */
+    $(function () {
+        $('#map').vectorMap({
+            map: 'world_mill_en',
+            series: {
+                regions: [{
+                    values: gdpData,
+                    scale: ['#000', '#000'],
+                    normalizeFunction: 'polynomial'
+                }]
+            },
+            backgroundColor: '#eef3f7',
+            onLabelShow: function (e, el, code) {
+                el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>
