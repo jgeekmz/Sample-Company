@@ -1,4 +1,4 @@
-# SampleCompany
+# Sample Company Task
 
 For the following task, a application in the selected programming language should be written and managed in a git repository.
 The system administrator of our SampleCompany wants to keep track of the computers issued by the company. For this purpose, computer details should be stored in an arbitrary database.
