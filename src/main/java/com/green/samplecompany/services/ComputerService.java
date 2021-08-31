@@ -21,8 +21,9 @@ public class ComputerService {
     private ComputerRepo computerRepo;
 
     // Add Computer
-    public void saveComputer(Computer pc) {
+    public Computer saveComputer(Computer pc) {
         computerRepo.save(pc);
+        return pc;
     }
 
     // Final all pcs
@@ -30,6 +31,7 @@ public class ComputerService {
         return computerRepo.findAll();
     }
 
+    // Find a pc by id
     public Optional<Computer> findById(Integer id) {
         return computerRepo.findById(id);
     }
