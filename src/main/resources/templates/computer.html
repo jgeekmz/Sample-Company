@@ -143,7 +143,7 @@
                                 <th><i class=""></i> Computer MAC Address</th>
                                 <th><i class=""></i> Computer IP Address</th>
                                 <th><i class=""></i> Description</th>
-                                <th><i class=""></i> Abbreviation</th>
+                                <th><i class=""></i> Employee Abbreviation</th>
                                 <th><i class="icon_cogs"></i> Action</th>
                             </tr>
                             <tr th:each="computer:${computers}">
@@ -194,21 +194,21 @@
                                 </div>
                                 <div class="form-group row">
                                     <label for="txtNameAdd" class="col-sm-4 col-form-label">Computer Name: </label>
-                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtNameAdd" name="computerName" placeholder="Computer Name"></div>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtNameAdd" name="computerName" placeholder="Computer Name" required></div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="txtDetailsAdd" class="col-sm-4 col-form-label">	Computer MAC Address: </label>
-                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtDetailsAdd" name="macAddress" placeholder="MAC Address"></div>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtDetailsAdd" name="macAddress" placeholder="MAC Address" required></div>
                                 </div>
                             </td>
                             <td width="50%" style="padding-left:10px">
                                 <div class="form-group row">
                                     <label for="txtWebsiteAdd" class="col-sm-4 col-form-label">Computer IP Address: </label>
-                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtWebsiteAdd" name="ipAddress" placeholder="IP Address"></div>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtWebsiteAdd" name="ipAddress" placeholder="IP Address" required></div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="txtEmpAbbrEdit" class="col-sm-4 col-form-label">Employee Abbreviation:</label>
-                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtEmpAbbrEdit" name="empAbbr" placeholder="Description"></div>
+                                    <div class="col-sm-6"><input type="text" class="form-control" id="txtEmpAbbrEdit" name="empAbbr" placeholder="Employee Abbreviation" required></div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="computerAdd" class="col-sm-4 col-form-label">PC to Employee:</label>

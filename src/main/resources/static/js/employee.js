@@ -3,7 +3,9 @@ $('document').ready(function() {
     $('.table .btn-primary').on('click',function(event){
         event.preventDefault();
         var href= $(this).attr('href');
+        console.log("HREF >>>>> " + href);
         $.get(href, function(employee, status){
+            console.log("HREF >>>>> " + href);
             $('#txtIdEdit').val(employee.id);
             $('#txtFirstnameEdit').val(employee.firstname);
             $('#txtLastnameEdit').val(employee.lastname);

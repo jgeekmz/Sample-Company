@@ -3,6 +3,7 @@ $('document').ready(function() {
     $('.table .btn-primary').on('click',function(event){
         event.preventDefault();
         var href= $(this).attr('href');
+        console.log("HREF >>>>> " + href);
         $.get(href, function(computer, status){
             $('#txtIdEdit').val(computer.id);
             $('#txtcomputerNameEdit').val(computer.computerName);
