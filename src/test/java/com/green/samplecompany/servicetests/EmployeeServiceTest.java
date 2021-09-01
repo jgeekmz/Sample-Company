@@ -1,10 +1,3 @@
-/**
- * Created on 31.08.2021
- * <p>
- * Copyright(c) Stiftung für Hochschulzulassung
- * Sonnenstraße 171, 44137 Dortmund
- * All rights reserved.
- */
 package com.green.samplecompany.servicetests;
 
 import static org.junit.Assert.assertEquals;
