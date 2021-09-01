@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.green.samplecompany.models.Computer;
 import com.green.samplecompany.repositories.ComputerRepo;
 
@@ -22,7 +23,7 @@ public class ComputerService {
 
     // Add Computer
     public Computer saveComputer(Computer pc) {
-        computerRepo.save(pc);
+        computerRepo.save( pc );
         return pc;
     }
 
@@ -33,12 +34,12 @@ public class ComputerService {
 
     // Find a pc by id
     public Optional<Computer> findById(Integer id) {
-        return computerRepo.findById(id);
+        return computerRepo.findById( id );
     }
 
     // Delete Computer
     public void delete(int id) {
-        computerRepo.deleteById(id);
+        computerRepo.deleteById( id );
     }
 
 }

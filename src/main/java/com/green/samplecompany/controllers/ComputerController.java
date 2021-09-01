@@ -32,16 +32,20 @@ public class ComputerController {
 
     @GetMapping("/computers")
     public String showComputers(Model model) {
-        model.addAttribute("computers", computerService.findAllPCs());
-        model.addAttribute("employees", employeeService.findAllEmps());
+        model.addAttribute( "computers", computerService.findAllPCs() );
+        model.addAttribute( "employees", employeeService.findAllEmps() );
         return "computer";
     }
 
     //Add Computer
     @PostMapping(value = "/computers/addNewComputer")
     public String addNew(Computer pc, Model model) {
-        model.addAttribute("computers", computerService.findAllPCs());
-        computerService.saveComputer(pc);
+        model.addAttribute( "computers", computerService.findAllPCs() );
+        if (pc == null) {
+            log.info( "pc Object ist empty!" );
+        } else {
+            computerService.saveComputer( pc );
+        }
         return "redirect:/computers";
     }
 
@@ -49,21 +53,25 @@ public class ComputerController {
     @RequestMapping("/computers/findById")
     @ResponseBody
     public Optional<Computer> findById(Model model, Integer id) {
-        model.addAttribute("emoployees", employeeService.findAllEmps());
-        return computerService.findById(id);
+        model.addAttribute( "emoployees", employeeService.findAllEmps() );
+        return computerService.findById( id );
     }
 
     // Update a comptuer
-    @RequestMapping(value="computers/update", method = { RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value = "computers/update", method = { RequestMethod.PUT, RequestMethod.GET })
     public String update(Computer pc) {
-        computerService.saveComputer(pc);
+        if (pc == null) {
+            log.info( "pc Object ist empty!" );
+        } else {
+            computerService.saveComputer( pc );
+        }
         return "redirect:/computers";
     }
 
     // Delete a comptuer
-    @RequestMapping(value="/computers/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value = "/computers/delete", method = { RequestMethod.DELETE, RequestMethod.GET })
     public String delete(Integer id) {
-        computerService.delete(id);
+        computerService.delete( id );
         return "redirect:/computers";
     }
 

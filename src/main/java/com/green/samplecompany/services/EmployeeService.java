@@ -23,7 +23,7 @@ public class EmployeeService {
 
     // Add Employee in DB
     public void saveEmp(Employee emp) {
-        employeeRepo.save(emp);
+        employeeRepo.save( emp );
     }
 
     // Find all Employees in DB
@@ -33,12 +33,12 @@ public class EmployeeService {
 
     // Find Employee by ID
     public Optional<Employee> findById(Integer id) {
-        return employeeRepo.findById(id);
+        return employeeRepo.findById( id );
     }
 
     //Delete Employee in DB
-    public void deleteEmployee( Integer id) {
-        employeeRepo.deleteById(id);
+    public void deleteEmployee(Integer id) {
+        employeeRepo.deleteById( id );
     }
 
 }
