@@ -1,0 +1,7 @@
+Steps on how to run the project:
+1. First you need to clone the repository and pull the code in your IDE. 
+2. You need to have Maven installed and configured on your PC.
+3. You need to open the project in your IDE.
+4. Build the project with: mvn clean install, which will run also the tests. If you would like to skip the test use: mvn clean install -DskipTests=true
+5. After successful build, you can access the project on : http://localhost:8181/
+6. You will see the Admin Panel with some counters for Registered PCs, Employees, PCs(which are assgned) & Employees with more then 3 PCs registered for them.
