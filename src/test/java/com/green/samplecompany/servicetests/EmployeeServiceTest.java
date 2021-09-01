@@ -37,8 +37,8 @@ public class EmployeeServiceTest {
     private EmployeeService empService;
 
     @Test
-    public void createEmployee() {
-        List<Employee> empDatabase = loadEmployees();
+    public void testCreateEmployee() {
+        List<Employee> empDatabase = loadTestDataEmployees();
         when( empRepo.findAll() ).thenReturn( empDatabase );
 
         //test
@@ -48,7 +48,7 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void deleteEmployee() {
+    public void testDeleteEmployee() {
         //TODO
     }
 
@@ -59,11 +59,11 @@ public class EmployeeServiceTest {
     //    }
 
     @Test
-    public void updateEmployee() {
+    public void testUpdateEmployee() {
         //TODO
     }
 
-    private List<Employee> loadEmployees() {
+    private List<Employee> loadTestDataEmployees() {
         Employee emp1 = new Employee( 1, "Martin", "Zlatkov" );
         Employee emp2 = new Employee( 2, "Ivan", "Dimitrov" );
 

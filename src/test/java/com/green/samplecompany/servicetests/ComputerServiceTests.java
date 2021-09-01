@@ -41,7 +41,7 @@ public class ComputerServiceTests{
     //№1
     @Test
     @DisplayName("Create Computer Test")
-    public void createPC() {
+    public void testCreatePC() {
         List<Computer> pcDatabase = loadPCTestData();
         when(pcRepo.findAll()).thenReturn(pcDatabase);
 
@@ -54,7 +54,7 @@ public class ComputerServiceTests{
     //№2
     @Test
     @DisplayName("Delete Computer Test")
-    public void deletePC() {
+    public void testDeletePC() {
     Computer pc = loadPCTestData().get(0);
 
     //when(pcRepo.findById(pc.getId())).thenReturn( Optional.of(pc));
