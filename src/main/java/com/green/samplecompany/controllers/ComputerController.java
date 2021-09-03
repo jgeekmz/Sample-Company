@@ -42,7 +42,7 @@ public class ComputerController {
     public String addNew(Computer pc, Model model) {
         model.addAttribute( "computers", computerService.findAllPCs() );
         if (pc == null) {
-            log.info( "pc Object ist empty!" );
+            //log.info( "pc Object ist empty!" );
         } else {
             computerService.saveComputer( pc );
         }
@@ -61,7 +61,7 @@ public class ComputerController {
     @RequestMapping(value = "computers/update", method = { RequestMethod.PUT, RequestMethod.GET })
     public String update(Computer pc) {
         if (pc == null) {
-            log.info( "pc Object ist empty!" );
+            //log.info( "pc Object ist empty!" );
         } else {
             computerService.saveComputer( pc );
         }

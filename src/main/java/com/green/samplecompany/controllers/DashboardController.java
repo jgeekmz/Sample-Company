@@ -43,7 +43,7 @@ public class DashboardController {
         if (!collect.isEmpty()) {
             for (Employee x : collect) {
                 if (x.getPcs().size() >= COUNT) {
-                    model.addAttribute("pcToemp", x.getPcs().size());
+                    model.addAttribute("pcToemp",x.getFirstname());
                 }
             }
         } else {
@@ -54,8 +54,7 @@ public class DashboardController {
         //TODO
 
         model.addAttribute("pcAssngedCount", "");
-
-        log.info("Inside dashboard controller!");
+        //log.info("Inside dashboard controller!");
         return "index";
     }
 

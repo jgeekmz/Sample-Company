@@ -103,10 +103,10 @@ public class Employee {
         return pcs.equals( employee.pcs );
     }
 
-    @Override public int hashCode() {
-        int result = firstname.hashCode();
-        result = 31 * result + lastname.hashCode();
-        result = 31 * result + pcs.hashCode();
-        return result;
-    }
+//    @Override public int hashCode() {
+//        int result = firstname.hashCode();
+//        result = 31 * result + lastname.hashCode();
+//        result = 31 * result + pcs.hashCode();
+//        return result;
+//    }
 }
